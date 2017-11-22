@@ -10,5 +10,10 @@ router.get('/',function(req,res){
 router.use('/cat01',cat01);
 router.use('/cat02',cat02);
 
+router.get("*",function(req,res){ 
+    // will catch anything that isn't a route match. Works for all routes, which is awesome. Must live at the bottom of the file.
+res.send("That's a 404, buddy.");
+});
+
 //export this router to use in our index.js
 module.exports = router;
