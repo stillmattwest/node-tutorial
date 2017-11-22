@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/', function(req, res){
-   res.send('Cat01 GET route.');
+router.get('/', function (req, res) {
+    return res.send('Cat01 GET route.');
 });
-router.post('/', function(req, res){
-   res.send('Cat01 POST route.');
-});
-
-router.get('/:id',function(req,res){ // add request parameters
-    res.send("The id you specified is: "+req.params.id);    
+router.post('/', function (req, res) {
+    return res.send('Cat01 POST route.');
 });
 
-router.get('/:name/:id',function(req,res){ // multiple parameters
-    res.send("<p>Name: "+req.params.name+"</p><p>ID: "+req.params.id+"</p>");    
+router.get('/:id', function (req, res) { // add request parameters
+    return res.send("The id you specified is: " + req.params.id);
+});
+
+router.get('/:name/:id', function (req, res) { // multiple parameters
+    return res.send("<p>Name: " + req.params.name + "</p><p>ID: " + req.params.id + "</p>");
 });
 
 
