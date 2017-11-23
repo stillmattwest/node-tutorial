@@ -2,6 +2,10 @@ const express = require('express'); // brings in the express module
 const app = express(); // a new express object (probably a closure) stored as "app"
 const controllers = require('./controllers/controllers.js'); // use this to effectively set up controllers for an MVC format or API endpoints.
 
+// set pug as view engine
+app.set('view engine', 'pug');
+app.set('views','./views');
+
 // pre-routing middleware
 // body-parser
 //To parse URL encoded data
