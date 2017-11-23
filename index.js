@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 
 // cookie parser
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 
 // express session
 const expressSession = require('express-session');
-app.use(expressSession());
+app.use(expressSession('secret'));
 
 //route handling
 app.use('/', controllers); // nice and clean. Controllers.js handles all the routing. This is the only routing reference necessary in index.js
