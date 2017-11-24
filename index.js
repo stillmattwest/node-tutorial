@@ -22,6 +22,9 @@ app.use(cookieParser('secret'));
 const expressSession = require('express-session');
 app.use(expressSession('secret'));
 
+//to allow serving of static files, includinsg images. We can also specify multiple static directories.
+app.use(express.static('public'));
+
 //route handling
 app.use('/', controllers); // nice and clean. Controllers.js handles all the routing. This is the only routing reference necessary in index.js
 
