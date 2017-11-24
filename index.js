@@ -8,6 +8,10 @@ const upload = multer();
 app.set('view engine', 'pug');
 app.set('views','./views');
 
+// set database
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/tutorial_db');
+
 // pre-routing middleware
 // body-parser
 //To parse URL encoded data
