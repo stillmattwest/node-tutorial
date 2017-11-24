@@ -5,6 +5,7 @@ const cat01 = require('./cat01.js');
 const cat02 = require('./cat02.js'); 
 const first_template = require('./first_template.js');
 const components = require('./components.js');
+const forms = require('./forms.js');
 
 
 
@@ -13,6 +14,7 @@ router.use('/cat01', cat01);
 router.use('/cat02', cat02);
 router.use('/first_template',first_template);
 router.use('/components',components);
+router.use('/forms',forms);
 
 //default route
 router.get('/', function (req, res, next) {

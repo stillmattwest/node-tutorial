@@ -1,6 +1,8 @@
 const express = require('express'); // brings in the express module
 const app = express(); // a new express object (probably a closure) stored as "app"
 const controllers = require('./controllers/controllers.js'); // use this to effectively set up controllers for an MVC format or API endpoints.
+const multer = require('multer');
+const upload = multer();
 
 // set pug as view engine
 app.set('view engine', 'pug');
@@ -17,6 +19,14 @@ app.use(bodyParser.json());
 // cookie parser
 const cookieParser = require('cookie-parser');
 app.use(cookieParser('secret'));
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
+// form-urlencoded <-- this was included in the tutorial. Definitely an error, seems to be unnecessary.
+
+// for parsing multipart/form-data
+app.use(upload.array()); 
+app.use(express.static('public'));
 
 // express session
 const expressSession = require('express-session');
