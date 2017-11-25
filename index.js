@@ -1,6 +1,5 @@
 // Note: this app uses an MVC format with controllers, models, and views all in separate folders. Database connection is defined in DAL folder. Controllers are aggregated in controllers/controllers.js
 
-
 const express = require('express'); // brings in the express module
 const app = express(); // a new express object
 // set a route aggregator
