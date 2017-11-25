@@ -1,3 +1,6 @@
+// Note: this app uses an MVC format with controllers, models, and views all in separate folders. Database connection is defined in DAL folder. Controllers are aggregated in controllers/controllers.js
+
+
 const express = require('express'); // brings in the express module
 const app = express(); // a new express object (probably a closure) stored as "app"
 const controllers = require('./controllers/controllers.js'); // use this to effectively set up controllers for an MVC format or API endpoints.
@@ -7,10 +10,6 @@ const upload = multer();
 // set pug as view engine
 app.set('view engine', 'pug');
 app.set('views','./views');
-
-// set database
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tutorial_db');
 
 // pre-routing middleware
 // body-parser
@@ -36,13 +35,11 @@ app.use(express.static('public'));
 const expressSession = require('express-session');
 app.use(expressSession('secret'));
 
-//to allow serving of static files, includinsg images. We can also specify multiple static directories.
+//to allow serving of static files, including images. We can also specify multiple static directories.
 app.use(express.static('public'));
 
 //route handling
 app.use('/', controllers); // nice and clean. Controllers.js handles all the routing. This is the only routing reference necessary in index.js
-
-
 
 // server is up
 app.listen(3000); // listen is a method of express that runs a node server on port 3000 in this case.

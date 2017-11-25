@@ -1,6 +1,11 @@
-var personSchema = mongoose.Schema({
-    name: String,
-    age: Number,
-    nationality: String
- });
- var Person = mongoose.model("Person", personSchema);
+module.exports = function(mongoose) {
+
+    var personSchema = {
+        name: String,
+        age: Number,
+        nationality: String
+    };
+
+    return personSchema;
+    // var Person = mongoose.model("Person", personSchema);
+};
