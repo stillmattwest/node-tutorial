@@ -3,7 +3,8 @@
 
 const express = require('express'); // brings in the express module
 const app = express(); // a new express object
-const controllers = require('./controllers/controllers.js'); // use this to effectively set up controllers for an MVC format or API endpoints.
+// set a route aggregator
+const routes = require('./routes/routes.js'); 
 const multer = require('multer');
 const upload = multer();
 
@@ -37,8 +38,8 @@ app.use(expressSession('secret'));
 //to allow serving of static files, including images. We can also specify multiple static directories.
 app.use(express.static('public'));
 
-//route handling
-app.use('/', controllers); // nice and clean. Controllers.js handles all the routing. This is the only routing reference necessary in index.js
+// all routes are aggregated in routes/routes.js like they should be
+app.use('/', routes); 
 
 // server is up
 app.listen(3000); // listen is a method of express that runs a node server on port 3000 in this case.
