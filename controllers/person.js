@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// This is a controller that touches the database via the DAL. The first two lines provide that
+// This is a controller that touches the database via the DAL. The next two lines provide database connectivity
 
 const db = require("../DAL/DAL.js");
 const Person = db.Person;
